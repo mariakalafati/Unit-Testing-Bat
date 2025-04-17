@@ -27,7 +27,7 @@ def bat_vehicles():
         'Batcycle': {'speed': 150, 'armor': 50}
     }
 
-# Test 2a: get_bat_vehicle known - parametrized test
+# Test 2a: get_bat_vehicle known - parametrized test to verify specifications 
 @pytest.mark.parametrize("vehicle_name", ["Batmobile", "Batwing", "Batcycle"])
 def test_get_bat_vehicle_known(vehicle_name, bat_vehicles):
     assert get_bat_vehicle(vehicle_name) == bat_vehicles[vehicle_name]
