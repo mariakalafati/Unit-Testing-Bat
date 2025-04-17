@@ -1,5 +1,5 @@
 import pytest
-from bat_functions import calculate_bat_power, signal_strength, get_bat_vehicle, fetch_joker_info
+from bat_functions import calculate_bat_power, signal_strength, get_bat_vehicle
 
 # Test 1a: calculate_bat_power - testing various level values (positive, zero, negative)
 def test_calculate_bat_power():
@@ -50,5 +50,5 @@ def fake_fetch():
 
 def test_fetch_joker_info_mocked(monkeypatch):
     monkeypatch.setattr(bat_functions, "fetch_joker_info", fake_fetch)
-    result = fetch_joker_info()
+    result = bat_functions.fetch_joker_info() 
     assert result == {'mischief_level': 0, 'location': 'captured'}
