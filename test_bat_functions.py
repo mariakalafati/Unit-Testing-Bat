@@ -1,5 +1,5 @@
 import pytest
-from bat_functions import calculate_bat_power, signal_strength
+from bat_functions import calculate_bat_power, signal_strength, get_bat_vehicle
 
 # Test 1a: calculate_bat_power - testing various level values (positive, zero, negative)
 def test_calculate_bat_power():
@@ -16,3 +16,13 @@ def test_calculate_bat_power():
 )
 def test_signal_strength(distance, expected_strength):
     assert signal_strength(distance) == expected_strength
+
+
+# Test 2: fixture for bat vehicles - dictionary of expected values
+@pytest.fixture
+def bat_vehicles():
+    return {
+        'Batmobile': {'speed': 200, 'armor': 80},
+        'Batwing': {'speed': 300, 'armor': 60},
+        'Batcycle': {'speed': 150, 'armor': 50}
+    }
