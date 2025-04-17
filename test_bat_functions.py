@@ -1,5 +1,5 @@
 import pytest
-from bat_functions import calculate_bat_power, signal_strength, get_bat_vehicle
+from bat_functions import calculate_bat_power, signal_strength, get_bat_vehicle, fetch_joker_info
 
 # Test 1a: calculate_bat_power - testing various level values (positive, zero, negative)
 def test_calculate_bat_power():
@@ -37,3 +37,11 @@ def test_get_bat_vehicle_known(vehicle_name, bat_vehicles):
 def test_get_bat_vehicle_unknown():
     with pytest.raises(ValueError, match="Unknown vehicle:.*"):
         get_bat_vehicle("Batboat")
+
+
+# Test 3: mock fetch_joker_info - simulate a fast response, custom directory, verify
+def test_fetch_joker_info_mocked(monkeypatch):
+    def fake_fetch():
+        return {'mischief_level': 0, 'location': 'captured'}
+    monkeypatch.setattr("bat_functions.fetch_joker_info", fake_fetch)
+    assert fetch_joker_info() == {'mischief_level': 0, 'location': 'captured'}
