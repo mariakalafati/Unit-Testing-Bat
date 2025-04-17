@@ -43,7 +43,12 @@ def test_get_bat_vehicle_unknown():
 def fake_fetch():
         return {'mischief_level': 0, 'location': 'captured'}
 
+import bat_functions
+
+def fake_fetch():
+    return {'mischief_level': 0, 'location': 'captured'}
+
 def test_fetch_joker_info_mocked(monkeypatch):
-    monkeypatch.setattr("bat_functions.fetch_joker_info", fake_fetch)
+    monkeypatch.setattr(bat_functions, "fetch_joker_info", fake_fetch)
     result = fetch_joker_info()
     assert result == {'mischief_level': 0, 'location': 'captured'}
