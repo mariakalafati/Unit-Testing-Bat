@@ -26,3 +26,14 @@ def bat_vehicles():
         'Batwing': {'speed': 300, 'armor': 60},
         'Batcycle': {'speed': 150, 'armor': 50}
     }
+
+# Test 2a: get_bat_vehicle known - parametrized test
+@pytest.mark.parametrize("vehicle_name", ["Batmobile", "Batwing", "Batcycle"])
+def test_get_bat_vehicle_known(vehicle_name, bat_vehicles):
+    assert get_bat_vehicle(vehicle_name) == bat_vehicles[vehicle_name]
+
+
+# Test 2b: get_bat_vehicle unknown - verify that unknown vehicle names trigger ValueError
+def test_get_bat_vehicle_unknown():
+    with pytest.raises(ValueError, match="Unknown vehicle:.*"):
+        get_bat_vehicle("Batboat")
