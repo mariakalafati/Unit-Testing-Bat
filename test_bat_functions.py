@@ -40,10 +40,10 @@ def test_get_bat_vehicle_unknown():
 
 
 # Test 3: mock fetch_joker_info - simulate a fast response, custom directory, verify
-def test_fetch_joker_info_mocked(monkeypatch):
-    def fake_fetch():
+def fake_fetch():
         return {'mischief_level': 0, 'location': 'captured'}
-    # Patch the function where it is used (bat_functions.fetch_joker_info)
+
+def test_fetch_joker_info_mocked(monkeypatch):
     monkeypatch.setattr("bat_functions.fetch_joker_info", fake_fetch)
     result = fetch_joker_info()
     assert result == {'mischief_level': 0, 'location': 'captured'}
