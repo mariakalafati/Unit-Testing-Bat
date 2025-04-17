@@ -8,19 +8,19 @@ This repository contains a project that demonstrates the use of **pytest** to wr
 ## Objectives Completed
 
 ### 1. Basic Tests & Parametrization
-- ✔Wrote unit tests for `calculate_bat_power`  
-- ✔Used **parametrization** to test `signal_strength` with various distances
+- Wrote unit tests for `calculate_bat_power`  
+- Used **parametrization** to test `signal_strength` with various distances
 
 ### 2. Using Fixtures
-- ✔Created a reusable fixture for Bat vehicle data  
-- ✔Tested `get_bat_vehicle` for valid and invalid inputs
+- Created a reusable fixture for Bat vehicle data  
+- Tested `get_bat_vehicle` for valid and invalid inputs
 
 ### 3. Mocking External Dependencies
-- ✔Mocked `fetch_joker_info` to simulate an instant response  
-- ✔Verified mock returns a custom result without waiting for real delay
+- Mocked `fetch_joker_info` to simulate an instant response  
+- Verified mock returns a custom result without waiting for real delay
 
 ### 4. Continuous Integration
-- ✔Configured GitHub Actions to:
+- Configured GitHub Actions to:
   - Run `pytest` on **every push or pull request**
   - Use **Ubuntu** and **Python 3.10.17**
   - Automatically install dependencies and execute tests
