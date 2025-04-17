@@ -46,4 +46,4 @@ def test_fetch_joker_info_mocked(monkeypatch):
     # Patch the function where it is used (bat_functions.fetch_joker_info)
     monkeypatch.setattr("bat_functions.fetch_joker_info", fake_fetch)
     result = fetch_joker_info()
-    assert fetch_joker_info() == {'mischief_level': 0, 'location': 'captured'}
+    assert result == {'mischief_level': 0, 'location': 'captured'}
